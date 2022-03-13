@@ -1,0 +1,19 @@
+table:
+  name: api_action
+  schema: public
+event_triggers:
+- definition:
+    enable_manual: true
+  headers:
+  - name: X-API-Key
+    value_from_env: WEBHOOK_API_KEY
+  name: api_action
+  request_transform:
+    body: "{\n  \"type\": {{$body.event.data.new.type}},\n  \"payload\": {{$body.event.data.new.payload}}\n}"
+    content_type: application/json
+    template_engine: Kriti
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 3600
+  webhook: "{{WEBHOOK_BASEURL}}hasura"

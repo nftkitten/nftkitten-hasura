@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  postgres: # postgres
+    image: postgres:13
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data/pgdata
+    environment:
+      - POSTGRES_USER=${PGUSER}
+      - POSTGRES_PASSWORD=${PGPASSWORD}
+      - POSTGRES_DB=${PGDATABASE}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - ${PGPORT}:5432
+  hasura:
+    image: hasura/graphql-engine:v2.3.0.cli-migrations-v3
+    ports:
+      - 8080:8080
+    volumes:
+      - ./migrations:/hasura-migrations
+      - ./metadata:/hasura-metadata
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: public
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: "startup, http-log, webhook-log, websocket-log, query-log"
+      HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_GRAPHQL_ADMIN_SECRET}
+      HASURA_GRAPHQL_JWT_SECRET: ${HASURA_GRAPHQL_JWT_SECRET}
+      WEBHOOK_BASEURL: http://host.docker.internal:3000/api/
+      WEBHOOK_API_KEY: ${WEBHOOK_API_KEY} 
+    depends_on:
+      - postgres-migration
+volumes:
+  postgres-data:

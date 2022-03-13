@@ -1,0 +1,3 @@
+table:
+  name: scan_log
+  schema: public

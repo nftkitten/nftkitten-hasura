@@ -1,0 +1,7 @@
+table:
+  name: token_listing
+  schema: public
+object_relationships:
+- name: token
+  using:
+    foreign_key_constraint_on: id

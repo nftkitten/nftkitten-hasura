@@ -1,0 +1,40 @@
+table:
+  name: wallet
+  schema: public
+object_relationships:
+- name: wallet_escrow_balance
+  using:
+    foreign_key_constraint_on:
+      column: wallet_id
+      table:
+        name: wallet_escrow_balance
+        schema: public
+array_relationships:
+- name: wallet_activities
+  using:
+    foreign_key_constraint_on:
+      column: id
+      table:
+        name: wallet_activity
+        schema: public
+- name: wallet_offers_mades
+  using:
+    foreign_key_constraint_on:
+      column: id
+      table:
+        name: wallet_offers_made
+        schema: public
+- name: wallet_offers_receiveds
+  using:
+    foreign_key_constraint_on:
+      column: id
+      table:
+        name: wallet_offers_received
+        schema: public
+- name: wallet_tokens
+  using:
+    foreign_key_constraint_on:
+      column: id
+      table:
+        name: wallet_token
+        schema: public
