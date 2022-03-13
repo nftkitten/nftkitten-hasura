@@ -26,8 +26,9 @@ array_relationships:
         schema: public
 select_permissions:
 - permission:
+    allow_aggregations: true
     columns:
     - data
-    - id
     filter: {}
+    limit: 500
   role: public
