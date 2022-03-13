@@ -28,6 +28,7 @@ services:
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: "startup, http-log, webhook-log, websocket-log, query-log"
       HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_GRAPHQL_ADMIN_SECRET}
       HASURA_GRAPHQL_JWT_SECRET: ${HASURA_GRAPHQL_JWT_SECRET}
+      PG_DATABASE_URL: postgres://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}
       WEBHOOK_BASEURL: http://host.docker.internal:3000/api/
       WEBHOOK_API_KEY: ${WEBHOOK_API_KEY} 
     depends_on:
