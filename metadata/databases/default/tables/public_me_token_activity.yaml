@@ -1,0 +1,7 @@
+table:
+  name: me_token_activity
+  schema: public
+object_relationships:
+- name: me_token
+  using:
+    foreign_key_constraint_on: id

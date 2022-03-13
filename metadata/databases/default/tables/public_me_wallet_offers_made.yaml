@@ -1,0 +1,7 @@
+table:
+  name: me_wallet_offers_made
+  schema: public
+object_relationships:
+- name: me_wallet
+  using:
+    foreign_key_constraint_on: id

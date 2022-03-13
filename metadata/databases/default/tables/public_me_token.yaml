@@ -1,0 +1,25 @@
+table:
+  name: me_token
+  schema: public
+array_relationships:
+- name: me_token_activities
+  using:
+    foreign_key_constraint_on:
+      column: id
+      table:
+        name: me_token_activity
+        schema: public
+- name: me_token_listings
+  using:
+    foreign_key_constraint_on:
+      column: id
+      table:
+        name: me_token_listing
+        schema: public
+- name: me_token_offer_receiveds
+  using:
+    foreign_key_constraint_on:
+      column: id
+      table:
+        name: me_token_offer_received
+        schema: public

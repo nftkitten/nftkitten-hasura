@@ -1,0 +1,33 @@
+table:
+  name: me_collection
+  schema: public
+object_relationships:
+- name: me_collection_stat
+  using:
+    foreign_key_constraint_on:
+      column: collection_id
+      table:
+        name: me_collection_stat
+        schema: public
+array_relationships:
+- name: collection_activities
+  using:
+    foreign_key_constraint_on:
+      column: collection_id
+      table:
+        name: me_collection_activity
+        schema: public
+- name: me_collection_listings
+  using:
+    foreign_key_constraint_on:
+      column: collection_id
+      table:
+        name: me_collection_listing
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - data
+    - id
+    filter: {}
+  role: public
