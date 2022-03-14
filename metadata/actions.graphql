@@ -1,0 +1,210 @@
+type Query {
+  meCollections(
+    offset: Int
+    limit: Int
+  ): [MECollection]
+}
+
+type Query {
+  meCollectionsActivities(
+    symbol: String
+    offset: Int
+    limit: Int
+  ): [MEActivity]
+}
+
+type Query {
+  meCollectionsListings(
+    symbol: String!
+    offset: Int
+    limit: Int
+  ): [MEListing]
+}
+
+type Query {
+  meCollectionsStats(
+    symbol: String!
+  ): MECollectionStats
+}
+
+type Query {
+  meLaunchpad(
+    offset: Int
+    limit: Int
+  ): [MELaunchpad]
+}
+
+type Query {
+  meTokens(
+    token_mint: String!
+  ): METoken
+}
+
+type Query {
+  meTokensActivities(
+    token_mint: String!
+    offset: Int
+    limit: Int
+  ): [MEActivity]
+}
+
+type Query {
+  meTokensListings(
+    token_mint: String!
+  ): [MEListing]
+}
+
+type Query {
+  meTokensOffersReceived(
+    token_mint: String!
+    offset: Int
+    limit: Int
+  ): [MEOffer]
+}
+
+type Query {
+  meWalletsActivies(
+    wallet_address: String!
+    offset: Int
+    limit: Int
+  ): [MEActivity]
+}
+
+type Query {
+  meWalletsEscrowBalance(
+    wallet_address: String!
+  ): MEEscrowBalance
+}
+
+type Mutation {
+  meWalletsOffersMade(
+    wallet_address: String!
+    offset: Int
+    limit: Int
+  ): [MEOffer]
+}
+
+type Mutation {
+  meWalletsOffersReceived(
+    wallet_address: String!
+    offset: Int
+    limit: Int
+  ): [MEOffer]
+}
+
+type Query {
+  meWalletsTokens(
+    wallet_address: String!
+    offset: Int
+    limit: Int
+    listedOnly: Boolean
+  ): [METoken]
+}
+
+type METokenAttribute {
+  trait_type: String
+  value: String
+}
+
+type METokenProperty {
+  files: [METokenFile!]
+  category: String
+  creators: [METokenCreator!]
+}
+
+type METokenFile {
+  uri: String!
+  type: String!
+}
+
+type METokenCreator {
+  address: String
+  share: Int
+}
+
+type MECollection {
+  symbol: String!
+  name: String
+  description: String
+  image: String
+  twitter: String
+  discord: String
+  website: String
+  categories: [String!]
+}
+
+type MEActivity {
+  signature: String!
+  type: String
+  source: String
+  tokenMint: String
+  collection: String
+  slot: Int
+  blockTime: Int
+  buyer: String
+  buyerReferral: String
+  seller: String
+  sellerReferral: String
+  price: Float
+}
+
+type METoken {
+  mintAddress: String!
+  owner: String
+  supply: Int
+  collection: String
+  name: String
+  updateAuthority: String
+  primarySaleHappened: Int
+  sellerFeeBasisPoints: Int
+  image: String
+  animationUrl: String
+  externalUrl: String
+  attributes: [METokenAttribute!]
+  properties: METokenProperty
+}
+
+type MEOffer {
+  pdaAddress: String!
+  tokenMint: String
+  auctionHouse: String
+  buyer: String
+  price: Float
+  tokenSize: Float
+  expiry: Float
+}
+
+type MEEscrowBalance {
+  buyerEscrow: String
+  balance: Float
+}
+
+type MEListing {
+  pdaAddress: String!
+  auctionHouse: String
+  tokenAddress: String
+  tokenMint: String
+  seller: String
+  tokenSize: Float
+  price: Float
+}
+
+type MELaunchpad {
+  symbol: String!
+  name: String
+  description: String
+  featured: Boolean
+  edition: String
+  image: String
+  price: Float
+  size: Int
+  launchDatetime: String
+}
+
+type MECollectionStats {
+  symbol: String!
+  floorPrice: Float
+  listedCount: Int
+  volumeAll: Int
+}
+
