@@ -10,7 +10,7 @@ type Query {
     symbol: String!
     offset: Int!
     limit: Int!
-  ): [MEActivity]
+  ): [MECollectionActivity]
 }
 
 type Query {
@@ -45,7 +45,7 @@ type Query {
     token_mint: String!
     offset: Int!
     limit: Int!
-  ): [MEActivity]
+  ): [METokenActivity]
 }
 
 type Query {
@@ -67,7 +67,7 @@ type Query {
     wallet_address: String!
     offset: Int!
     limit: Int!
-  ): [MEActivity]
+  ): [MECollectionActivity]
 }
 
 type Query {
@@ -133,12 +133,27 @@ type MECollection {
   categories: [String!]
 }
 
-type MEActivity {
+type MECollectionActivity {
   signature: String!
   type: String
   source: String
   tokenMint: String
   collection: String
+  slot: Int
+  blockTime: Int
+  buyer: String
+  buyerReferral: String
+  seller: String
+  sellerReferral: String
+  price: Float
+}
+
+type METokenActivity {
+  signature: String!
+  type: String
+  source: String
+  tokenMint: String
+  collectionSymbol: String
   slot: Int
   blockTime: Int
   buyer: String

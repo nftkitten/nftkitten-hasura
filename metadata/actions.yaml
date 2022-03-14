@@ -196,7 +196,8 @@ custom_types:
   - name: METokenFile
   - name: METokenCreator
   - name: MECollection
-  - name: MEActivity
+  - name: MECollectionActivity
+  - name: METokenActivity
   - name: METoken
   - name: MEOffer
   - name: MEEscrowBalance
