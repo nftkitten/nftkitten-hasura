@@ -2,7 +2,7 @@ actions:
 - name: meCollections
   definition:
     kind: ""
-    handler: https://api-mainnet.magiceden.dev/v2http://host.docker.internal:3000
+    handler: https://api-mainnet.magiceden.dev/v2
     request_transform:
       method: GET
       query_params:
@@ -10,6 +10,8 @@ actions:
         offset: '{{$body.input.offset}}'
       template_engine: Kriti
       url: '{{$base_url}}/collections'
+  permissions:
+  - role: public
   comment: Get collections
 - name: meCollectionsActivities
   definition:
@@ -22,6 +24,8 @@ actions:
         offset: '{{$body.input.offset}}'
       template_engine: Kriti
       url: '{{$base_url}}/collections/{{$body.input.symbol}}/activities'
+  permissions:
+  - role: public
   comment: Get activities of a collection
 - name: meCollectionsListings
   definition:
@@ -34,6 +38,8 @@ actions:
         offset: '{{$body.input.offset}}'
       template_engine: Kriti
       url: '{{$base_url}}/collections/{{$body.input.symbol}}/listings'
+  permissions:
+  - role: public
   comment: Get listings of a collection
 - name: meCollectionsStats
   definition:
@@ -44,6 +50,8 @@ actions:
       query_params: {}
       template_engine: Kriti
       url: '{{$base_url}}/collections/{{$body.input.symbol}}/stats'
+  permissions:
+  - role: public
   comment: Get stats of a collection
 - name: meLaunchpad
   definition:
@@ -56,6 +64,8 @@ actions:
         offset: '{{$body.input.offset}}'
       template_engine: Kriti
       url: '{{$base_url}}/launchpad/collections'
+  permissions:
+  - role: public
   comment: Get launchpad collections
 - name: meTokens
   definition:
@@ -66,11 +76,13 @@ actions:
       query_params: {}
       template_engine: Kriti
       url: '{{$base_url}}/tokens/{{$body.input.token_mint}}'
+  permissions:
+  - role: public
   comment: Get token metadata by mint address
 - name: meTokensActivities
   definition:
     kind: ""
-    handler: http://api-mainnet.magiceden.dev/v2
+    handler: https://api-mainnet.magiceden.dev/v2
     request_transform:
       method: GET
       query_params:
@@ -78,6 +90,8 @@ actions:
         offset: '{{$body.input.offset}}'
       template_engine: Kriti
       url: '{{$base_url}}/tokens/{{$body.input.token_mint}}/activities'
+  permissions:
+  - role: public
   comment: Get activities for a token / NFT.
 - name: meTokensListings
   definition:
@@ -88,6 +102,8 @@ actions:
       query_params: {}
       template_engine: Kriti
       url: '{{$base_url}}/tokens/{{$body.input.token_mint}}/listings'
+  permissions:
+  - role: public
   comment: Get listings for a token / NFT.
 - name: meTokensOffersReceived
   definition:
@@ -100,6 +116,8 @@ actions:
         offset: '{{$body.input.offset}}'
       template_engine: Kriti
       url: '{{$base_url}}/tokens/{{$body.input.token_mint}}/offers_received'
+  permissions:
+  - role: public
   comment: Get received offers for a token / NFT.
 - name: meWalletsActivies
   definition:
@@ -112,6 +130,8 @@ actions:
         offset: '{{$body.input.offset}}'
       template_engine: Kriti
       url: '{{$base_url}}/wallets/{{$body.input.wallet_address}}/activities'
+  permissions:
+  - role: public
 - name: meWalletsEscrowBalance
   definition:
     kind: ""
@@ -121,10 +141,12 @@ actions:
       query_params: {}
       template_engine: Kriti
       url: '{{$base_url}}/wallets/{{$body.input.wallet_address}}/escrow_balance'
+  permissions:
+  - role: public
   comment: Get escrow balance for a wallet.
 - name: meWalletsOffersMade
   definition:
-    kind: synchronous
+    kind: ""
     handler: https://api-mainnet.magiceden.dev/v2
     request_transform:
       method: GET
@@ -133,18 +155,22 @@ actions:
         offset: '{{$body.input.offset}}'
       template_engine: Kriti
       url: '{{$base_url}}/wallets/{{$body.input.wallet_address}}/offers_made'
+  permissions:
+  - role: public
   comment: Get offers made by a wallet.
 - name: meWalletsOffersReceived
   definition:
-    kind: synchronous
+    kind: ""
     handler: https://api-mainnet.magiceden.dev/v2
     request_transform:
       method: GET
       query_params:
-        limit: '{{$body.input.limit}}'
-        offset: '{{$body.input.offset}}'
+        limit: '{{$body?.input?.limit}}'
+        offset: '{{$body?.input?.offset}}'
       template_engine: Kriti
       url: '{{$base_url}}/wallets/{{$body.input.wallet_address}}/offers_received'
+  permissions:
+  - role: public
   comment: Get offers received by a wallet.
 - name: meWalletsTokens
   definition:
@@ -158,6 +184,8 @@ actions:
         offset: '{{$body.input.offset}}'
       template_engine: Kriti
       url: '{{$base_url}}/wallets/{{$body.input.wallet_address}}/tokens'
+  permissions:
+  - role: public
   comment: Get tokens owned by a wallet.
 custom_types:
   enums: []

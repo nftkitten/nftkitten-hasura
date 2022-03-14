@@ -1,23 +1,23 @@
 type Query {
   meCollections(
-    offset: Int
-    limit: Int
+    offset: Int!
+    limit: Int!
   ): [MECollection]
 }
 
 type Query {
   meCollectionsActivities(
-    symbol: String
-    offset: Int
-    limit: Int
+    symbol: String!
+    offset: Int!
+    limit: Int!
   ): [MEActivity]
 }
 
 type Query {
   meCollectionsListings(
     symbol: String!
-    offset: Int
-    limit: Int
+    offset: Int!
+    limit: Int!
   ): [MEListing]
 }
 
@@ -29,8 +29,8 @@ type Query {
 
 type Query {
   meLaunchpad(
-    offset: Int
-    limit: Int
+    offset: Int!
+    limit: Int!
   ): [MELaunchpad]
 }
 
@@ -43,8 +43,8 @@ type Query {
 type Query {
   meTokensActivities(
     token_mint: String!
-    offset: Int
-    limit: Int
+    offset: Int!
+    limit: Int!
   ): [MEActivity]
 }
 
@@ -57,16 +57,16 @@ type Query {
 type Query {
   meTokensOffersReceived(
     token_mint: String!
-    offset: Int
-    limit: Int
+    offset: Int!
+    limit: Int!
   ): [MEOffer]
 }
 
 type Query {
   meWalletsActivies(
     wallet_address: String!
-    offset: Int
-    limit: Int
+    offset: Int!
+    limit: Int!
   ): [MEActivity]
 }
 
@@ -76,28 +76,28 @@ type Query {
   ): MEEscrowBalance
 }
 
-type Mutation {
+type Query {
   meWalletsOffersMade(
     wallet_address: String!
-    offset: Int
-    limit: Int
+    offset: Int!
+    limit: Int!
   ): [MEOffer]
 }
 
-type Mutation {
+type Query {
   meWalletsOffersReceived(
     wallet_address: String!
-    offset: Int
-    limit: Int
+    offset: Int!
+    limit: Int!
   ): [MEOffer]
 }
 
 type Query {
   meWalletsTokens(
     wallet_address: String!
-    offset: Int
-    limit: Int
-    listedOnly: Boolean
+    offset: Int!
+    limit: Int!
+    listedOnly: Boolean!
   ): [METoken]
 }
 
