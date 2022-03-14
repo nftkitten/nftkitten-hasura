@@ -16,4 +16,4 @@ event_triggers:
     interval_sec: 10
     num_retries: 0
     timeout_sec: 86400
-  webhook: "{{WEBHOOK_BASEURL}}hasura"
+  webhook: "{{WEBHOOK_BASE_URL}}hasura"
