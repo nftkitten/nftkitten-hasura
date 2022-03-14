@@ -1,10 +1,3 @@
 table:
   name: me_launchpad
   schema: public
-select_permissions:
-- permission:
-    columns:
-    - data
-    filter: {}
-    limit: 500
-  role: public

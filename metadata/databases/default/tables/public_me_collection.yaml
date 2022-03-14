@@ -24,11 +24,3 @@ array_relationships:
       table:
         name: me_collection_listing
         schema: public
-select_permissions:
-- permission:
-    allow_aggregations: true
-    columns:
-    - data
-    filter: {}
-    limit: 500
-  role: public
