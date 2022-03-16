@@ -7,8 +7,6 @@ CREATE TABLE IF NOT EXISTS public.api_action (
    CONSTRAINT api_action_pkey PRIMARY KEY(type)
 );
 
-INSERT INTO public.api_action(type, payload)VALUES('RELOAD_UPSTREAM', '{"force":false}') ON CONFLICT(type) DO NOTHING;
-
 CREATE TABLE IF NOT EXISTS public.collection (
    id text NOT NULL,
    data jsonb NOT NULL,
