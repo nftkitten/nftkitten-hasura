@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS public.launchpad (
 CREATE TABLE IF NOT EXISTS public.token (
    id text NOT NULL,
    data jsonb NOT NULL,
+   updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT token_pkey PRIMARY KEY(id)
 );
 
