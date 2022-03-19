@@ -30,7 +30,7 @@ services:
       HASURA_GRAPHQL_JWT_SECRET: ${HASURA_GRAPHQL_JWT_SECRET}
       PG_DATABASE_URL: postgres://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}
       WEBHOOK_BASE_URL: ${WEBHOOK_BASE_URL}
-      WEBHOOK_API_KEY: ${WEBHOOK_API_KEY} 
+      WEBHOOK_API_KEY: ${WEBHOOK_API_KEY}
     depends_on:
       - postgres-migration
 volumes:
