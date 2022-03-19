@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS public.me_collection_activity (
    data jsonb NOT NULL,
    updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT me_collection_activity_pkey PRIMARY KEY(collection_id,id),
-   CONSTRAINT me_collection_activity_collection_id_fkey FOREIGN KEY (collection_id) REFERENCES public.me_collection(id) ON UPDATE CASCADE ON DELETE CASCADE
+   CONSTRAINT me_collection_activity_collection_id_fkey FOREIGN KEY (collection_id) REFERENCES public.me_collection(id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS public.me_collection_listing (
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS public.me_collection_listing (
    data jsonb NOT NULL,
    updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT me_collection_listing_pkey PRIMARY KEY(collection_id,id),
-   CONSTRAINT me_collection_listing_collection_id_fkey FOREIGN KEY (collection_id) REFERENCES public.me_collection(id) ON UPDATE CASCADE ON DELETE CASCADE
+   CONSTRAINT me_collection_listing_collection_id_fkey FOREIGN KEY (collection_id) REFERENCES public.me_collection(id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS public.me_collection_stat (
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS public.me_collection_stat (
    data jsonb NOT NULL,
    updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT me_collection_stat_pkey PRIMARY KEY(collection_id),
-   CONSTRAINT me_collection_stat_collection_id_fkey FOREIGN KEY (collection_id) REFERENCES public.me_collection(id) ON UPDATE CASCADE ON DELETE CASCADE
+   CONSTRAINT me_collection_stat_collection_id_fkey FOREIGN KEY (collection_id) REFERENCES public.me_collection(id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS public.me_launchpad (
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS public.me_token_activity (
    data jsonb NOT NULL,
    updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT me_token_activity_pkey PRIMARY KEY(token_id,id),
-   CONSTRAINT me_token_activity_token_id_fkey FOREIGN KEY (id) REFERENCES public.me_token(id) ON UPDATE CASCADE ON DELETE CASCADE
+   CONSTRAINT me_token_activity_token_id_fkey FOREIGN KEY (id) REFERENCES public.me_token(id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS public.me_token_listing (
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS public.me_token_listing (
    data jsonb NOT NULL,
    updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT me_token_listing_pkey PRIMARY KEY(token_id,id),
-   CONSTRAINT me_token_listing_token_id_fkey FOREIGN KEY (id) REFERENCES public.me_token(id) ON UPDATE CASCADE ON DELETE CASCADE
+   CONSTRAINT me_token_listing_token_id_fkey FOREIGN KEY (id) REFERENCES public.me_token(id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS public.me_token_offer_received (
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS public.me_token_offer_received (
    data jsonb NOT NULL,
    updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT me_token_offer_received_pkey PRIMARY KEY(token_id,id),
-   CONSTRAINT me_token_offer_received_token_id_fkey FOREIGN KEY (id) REFERENCES public.me_token(id) ON UPDATE CASCADE ON DELETE CASCADE
+   CONSTRAINT me_token_offer_received_token_id_fkey FOREIGN KEY (id) REFERENCES public.me_token(id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS public.me_wallet (
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS public.me_wallet_activity (
    data jsonb NOT NULL,
    updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT me_wallet_activity_pkey PRIMARY KEY(wallet_id,id),
-   CONSTRAINT me_wallet_activity_wallet_id_fkey FOREIGN KEY (id) REFERENCES public.me_wallet(id) ON UPDATE CASCADE ON DELETE CASCADE
+   CONSTRAINT me_wallet_activity_wallet_id_fkey FOREIGN KEY (id) REFERENCES public.me_wallet(id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS public.me_wallet_escrow_balance (
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS public.me_wallet_escrow_balance (
    data jsonb NOT NULL,
    updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT me_wallet_escrow_balance_pkey PRIMARY KEY(wallet_id),
-   CONSTRAINT me_wallet_escrow_balance_wallet_id_fkey FOREIGN KEY (wallet_id) REFERENCES public.me_wallet(id) ON UPDATE CASCADE ON DELETE CASCADE
+   CONSTRAINT me_wallet_escrow_balance_wallet_id_fkey FOREIGN KEY (wallet_id) REFERENCES public.me_wallet(id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS public.me_wallet_offers_made (
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS public.me_wallet_offers_made (
    data jsonb NOT NULL,
    updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT me_wallet_offers_made_pkey PRIMARY KEY(wallet_id,id),
-   CONSTRAINT me_wallet_offers_made_wallet_id_fkey FOREIGN KEY (id) REFERENCES public.me_wallet(id) ON UPDATE CASCADE ON DELETE CASCADE
+   CONSTRAINT me_wallet_offers_made_wallet_id_fkey FOREIGN KEY (id) REFERENCES public.me_wallet(id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS public.me_wallet_offers_received (
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS public.me_wallet_offers_received (
    data jsonb NOT NULL,
    updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT me_wallet_offers_received_pkey PRIMARY KEY(wallet_id,id),
-   CONSTRAINT me_wallet_offers_received_wallet_id_fkey FOREIGN KEY (id) REFERENCES public.me_wallet(id) ON UPDATE CASCADE ON DELETE CASCADE
+   CONSTRAINT me_wallet_offers_received_wallet_id_fkey FOREIGN KEY (id) REFERENCES public.me_wallet(id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS public.me_wallet_token (
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS public.me_wallet_token (
    data jsonb NOT NULL,
    updated_at timestamp NULL DEFAULT now(),
    CONSTRAINT me_wallet_token_pkey PRIMARY KEY(wallet_id,id),
-   CONSTRAINT me_wallet_token_wallet_id_fkey FOREIGN KEY (id) REFERENCES public.me_wallet(id) ON UPDATE CASCADE ON DELETE CASCADE
+   CONSTRAINT me_wallet_token_wallet_id_fkey FOREIGN KEY (id) REFERENCES public.me_wallet(id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS public.me_scan_log (
