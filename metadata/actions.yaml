@@ -165,8 +165,8 @@ actions:
     request_transform:
       method: GET
       query_params:
-        limit: '{{$body?.input?.limit}}'
-        offset: '{{$body?.input?.offset}}'
+        limit: '{{$body.input.limit}}'
+        offset: '{{$body.input.offset}}'
       template_engine: Kriti
       url: '{{$base_url}}/wallets/{{$body.input.wallet_address}}/offers_received'
   permissions:
