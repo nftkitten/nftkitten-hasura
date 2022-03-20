@@ -1,3 +1,9 @@
 table:
   name: me_launchpad
   schema: public
+select_permissions:
+- permission:
+    columns:
+    - data
+    filter: {}
+  role: public

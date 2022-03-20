@@ -24,3 +24,9 @@ array_relationships:
       table:
         name: me_collection_listing
         schema: public
+select_permissions:
+- permission:
+    columns:
+    - data
+    filter: {}
+  role: public
