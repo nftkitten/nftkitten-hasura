@@ -5,6 +5,8 @@ select_permissions:
 - permission:
     columns:
     - data
+    - id
     - stats
+    - updated_at
     filter: {}
   role: public
